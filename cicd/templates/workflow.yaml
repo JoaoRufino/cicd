@@ -14,7 +14,10 @@ spec:
     path: charts/argo-workflows
     repoURL: https://github.com/joaorufino/cicd.git
     targetRevision: HEAD
-  syncPolicy:
+    helm:
+     valueFiles:
+       - values.yaml 
+ syncPolicy:
     automated:
       prune: true
       selfHeal: true
