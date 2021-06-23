@@ -11,13 +11,13 @@ spec:
     namespace: argo 
   project: argo 
   source:
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 0.2.5
     helm:
-      chart:
-        - argo-workflows
+      version: "3"
       valueFiles:
         - values-workflows.yaml
+    chart: argo-workflows
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 0.2.5
   syncPolicy:
     automated:
       prune: true

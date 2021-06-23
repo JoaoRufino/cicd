@@ -11,13 +11,13 @@ spec:
     namespace: argo 
   project: argo 
   source:
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 3.6.8
     helm:
-      chart:
-        - argo-cd
+      version: "3"
       valueFiles:
         - values-cd.yaml
+    chart: argo-cd
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 3.6.8
   syncPolicy:
     automated:
       prune: true
