@@ -1,0 +1,6 @@
+server:
+  servicePort: 443
+  ingress:
+    enabled: true
+installCRDs: false
+
