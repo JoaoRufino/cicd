@@ -5,6 +5,7 @@
 server:
   ingress:
     enabled: true
+    hosts: [ "argocd.192.168.49.2.nip.io" ]
   dex:
     enabled: false
   extraArgs:
