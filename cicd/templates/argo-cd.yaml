@@ -12,7 +12,6 @@ spec:
   project: argo 
   source:
     helm:
-      version: "3"
       valueFiles:
         - values-cd.yaml
     chart: argo-cd
