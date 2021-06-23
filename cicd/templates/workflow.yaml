@@ -15,8 +15,8 @@ spec:
     repoURL: https://github.com/joaorufino/cicd.git
     targetRevision: HEAD
     helm:
-     valueFiles:
-       - values.yaml 
+      valueFiles:
+        - values.yaml 
  syncPolicy:
     automated:
       prune: true
