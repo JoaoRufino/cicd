@@ -11,7 +11,7 @@ spec:
     namespace: argo
   project: argo 
   source:
-    path: charts/argo-workflow
+    path: charts/argo-workflows
     repoURL: https://github.com/joaorufino/cicd.git
     targetRevision: HEAD
   syncPolicy:
