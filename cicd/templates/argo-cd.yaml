@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: argocd.yaml
   namespace: argo 
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,11 +11,6 @@ spec:
     namespace: argo 
   project: argo 
   source:
-    helm:
-      valueFiles:
-        - values.yaml
-    path: cicd/charts/argo-cd
-    repoURL: https://github.com/JoaoRufino/cicd.git
   syncPolicy:
     automated:
       prune: true
