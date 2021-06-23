@@ -1,22 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argoworkflows
+  name: argoworkflow
   namespace: argo 
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: argo 
+    namespace: argo
   project: argo 
   source:
-    helm:
-      valueFiles:
-        - values.yaml
-    path: cicd/charts/argo-workflows
-    repoURL: https://github.com/JoaoRufino/cicd.git
+    path: charts/argo-workflow
+    repoURL: https://github.com/joaorufino/cicd.git
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: true   
