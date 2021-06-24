@@ -1,7 +1,9 @@
-server:
-  servicePort: 443
-  ingress:
-    enabled: true
-    hosts: [ "argo-workflows.192.168.49.2.nip.io" ]
-installCRDs: false
+argo-workflows:
+  server:
+    servicePort: 443
+    ingress:
+      enabled: true
+      hosts: 
+        - argo-workflows.192.168.49.2.nip.io
+  installCRDs: false
 
