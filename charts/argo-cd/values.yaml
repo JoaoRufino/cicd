@@ -43,7 +43,7 @@ argo-cd:
       orphanedResources:
         warn: false
     additionalApplications: 
-      - name: dev 
+      - name: root 
         namespace: argo
         destination:
           namespace: argo
