@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
 data:
   # Argo CD's externally facing base URL (optional). Required when configuring SSO
-  url: https://argo-cd-demo.argoproj.io
+  url: http://argocd.192.168.49.2.nip.io/applications
 
   # Enables application status badge feature
   statusbadge.enabled: "true"
