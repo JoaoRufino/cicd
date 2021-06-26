@@ -1,7 +1,8 @@
 ## ArgoCD configuration
 ## Ref: https://github.com/argoproj/argo-cd
 ##
-## Server
+##
+# Need to move some of these values to templates
 argo-cd:
   installCRDs: false
   global:
