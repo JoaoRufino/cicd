@@ -5,13 +5,13 @@ metadata:
   namespace: ci
 spec:
   arguments:
-      parameters:
+    parameters:
         - name: repo
           value: https://github.com/joao.rufino/joaorufino
         - name: branch
           value: master
         - name: path
-          value: . 
+          value: .
         - name: image
           value: imaginary 
         - name: tag

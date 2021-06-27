@@ -1,21 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ClusterWorkflowTemplate
 metadata:
-  name: build-container-with-kaniko
-  namespace: ci
-spec:
-  templates:
-  - name: build-from-git
-    inputs:
-      
-apiVersion: argoproj.io/v1alpha1
-kind: ClusterWorkflowTemplate
-metadata:
   name: build-container-with-buildkit
   namespace: ci
 spec:
   arguments:
-      parameters:
+    parameters:
         - name: repo
           value: https://github.com/joao.rufino/imaginary
         - name: branch
@@ -106,8 +96,7 @@ spec:
             - build
             - -v
             - --build-arg
-            - IMAGINARY_VERSION=
-            - {{`{{inputs.parameters.tag}}` }}
+            - IMAGINARY_VERSION={{`{{inputs.parameters.tag}}`}}
             - -o
             - bin/imaginary
             - ./...
