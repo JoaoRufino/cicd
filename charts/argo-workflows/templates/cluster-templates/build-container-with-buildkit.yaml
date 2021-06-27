@@ -105,6 +105,7 @@ spec:
       inputs:
         parameters:
           - name: path
+          - name: tag 
       container:
         image: golang:1.13
         volumeMounts:
