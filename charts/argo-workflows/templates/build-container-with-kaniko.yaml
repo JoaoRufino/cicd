@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: build-container-with-kaniko
+  namespace: ci
+spec:
+  templates:
+  - name: build-from-git
+    inputs:
+      parameters:
+      - name: gh-repo
+      - name: gh-token
+      - name: container-repo
+      - name: container-tag
+    container:
+      image: gcr.io/kaniko-project/executor:debug
+      imagePullPolicy: Always
+      args:
+      - --context=git://{{inputs.parameters.gh-token}}@github.com/{{inputs.parameters.gh-repo}}.git
+      - --destination=421016705922.dkr.ecr.eu-central-1.amazonaws.com/{{inputs.parameters.container-repo}}:{{inputs.parameters.container-tag}}
+      volumeMounts:
+        - name: kaniko-docker-config
+          mountPath: /kaniko/.docker/
+        - name: kaniko-aws-secret
+          mountPath: /root/.aws/
+      
+  

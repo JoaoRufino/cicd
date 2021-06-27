@@ -1,0 +1,41 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: build-container-with-buildkit
+  namespace: ci
+spec:
+  templates:
+  - name: build-from-git
+    inputs:
+      parameters:
+      - name: gh-repo
+      - name: gh-token
+      - name: container-repo
+      - name: container-tag
+    container:
+      image: moby/buildkit:v0.8.3-rootless
+      imagePullPolicy: Always
+      args:
+        - build
+        - --frontend
+        - dockerfile.v0
+        - --local
+        - context=.
+        - --local
+        - dockerfile=.
+        - --output
+        - type=image,name=docker.io/{{inputs.parameters.image}},push=true
+      volumeMounts:
+        - name: app
+          mounthPath: /app
+        - name: buildkit-docker-config
+          mountPath: /buildkit/.docker
+      workingDir: /app/{{inputs.parameters.path}}
+      env:
+        - name: BUILDKITD_FLAGS
+          value: --oci-worker-no-process-sandbox
+        - name: DOCKER_CONFIG
+          value: /buildkit/.docker
+      command:
+        - buildctl-daemonless.sh
