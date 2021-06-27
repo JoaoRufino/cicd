@@ -1,0 +1,9 @@
+argo-events:
+  server:
+    servicePort: 443
+    ingress:
+      enabled: true
+      hosts: 
+        - argo-events.192.168.49.2.nip.io
+  installCRDs: false
+
