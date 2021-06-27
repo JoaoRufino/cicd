@@ -16,8 +16,8 @@ spec:
       image: gcr.io/kaniko-project/executor:debug
       imagePullPolicy: Always
       args:
-      - --context=git://{{inputs.parameters.gh-token}}@github.com/{{inputs.parameters.gh-repo}}.git
-      - --destination=421016705922.dkr.ecr.eu-central-1.amazonaws.com/{{inputs.parameters.container-repo}}:{{inputs.parameters.container-tag}}
+      - --context=git://{{`{{inputs.parameters.gh-token}}`}}@github.com/{{`{{inputs.parameters.gh-repo}}`}}.git
+      - --destination=421016705922.dkr.ecr.eu-central-1.amazonaws.com/{{`{{inputs.parameters.container-repo}}`}}:{{`{{inputs.parameters.container-tag}}`}}
       volumeMounts:
         - name: kaniko-docker-config
           mountPath: /kaniko/.docker/

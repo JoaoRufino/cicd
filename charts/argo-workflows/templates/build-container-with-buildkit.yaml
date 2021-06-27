@@ -25,13 +25,13 @@ spec:
         - --local
         - dockerfile=.
         - --output
-        - type=image,name=docker.io/{{inputs.parameters.image}},push=true
+        - type=image,name=docker.io/{{`{{inputs.parameters.image}}`}},push=true
       volumeMounts:
         - name: app
           mounthPath: /app
         - name: buildkit-docker-config
           mountPath: /buildkit/.docker
-      workingDir: /app/{{inputs.parameters.path}}
+      workingDir: /app/{{`{{inputs.parameters.gh-repo}}`}}
       env:
         - name: BUILDKITD_FLAGS
           value: --oci-worker-no-process-sandbox
