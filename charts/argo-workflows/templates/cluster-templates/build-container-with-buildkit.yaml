@@ -34,7 +34,7 @@ spec:
   arguments:
     parameters:
         - name: repo
-          value: https://github.com/joao.rufino/imaginary
+          value: https://github.com/h2non/imaginary.git 
         - name: branch
           value: master
         - name: path
