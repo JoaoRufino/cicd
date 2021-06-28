@@ -113,7 +113,7 @@ spec:
         image: gcr.io/kaniko-project/executor:debug
         imagePullPolicy: Always
         args:
-        - --destination=docker.pkg.github.com/joaorufino/repository/{{`{{inputs.parameters.image}}`}}:{{`{{inputs.parameters.tag}}`}}
+        - --destination=docker.pkg.github.com/joaorufino/imaginary/{{`{{inputs.parameters.image}}`}}:{{`{{inputs.parameters.tag}}`}}
         volumeMounts:
           - name: kaniko-docker-config
             mountPath: /kaniko/.docker/
