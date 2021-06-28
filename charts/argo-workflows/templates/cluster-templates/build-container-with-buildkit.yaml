@@ -166,4 +166,4 @@ spec:
           - --local
           - dockerfile=.
           - --output
-          - type=image,name=docker.pkg.github.com/joaorufino/repository/{{`{{inputs.parameters.image}}`}}:{{`{{inputs.parameters.tag}}`}},push=true
+          - type=image,name=docker.pkg.github.com/joaorufino/imaginary/{{`{{inputs.parameters.image}}`}}:{{`{{inputs.parameters.tag}}`}},push=true
