@@ -11,8 +11,8 @@ image:
   tag: "latest"
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "imaginary"
+fullnameOverride: "imaginary"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -41,7 +41,7 @@ service:
   port: 80 
 
 ingress:
-  enabled: false
+  enabled: true 
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
